@@ -1,4 +1,4 @@
-# Node.js Style Guide
+# Node.js 代码风格指导
 
 This is a guide for writing consistent and aesthetically pleasing node.js code.
 It is inspired by what is popular within the community, and flavored with some
@@ -8,31 +8,30 @@ There is a .jshintrc which enforces these rules as closely as possible. You can
 either use that and adjust it, or use
 [this script](https://gist.github.com/kentcdodds/11293570) to make your own.
 
-This guide was created by [Felix Geisendörfer](http://felixge.de/) and is
-licensed under the [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
-license. You are encouraged to fork this repository and make adjustments
-according to your preferences.
+这份指南由 [Felix Geisendörfer](http://felixge.de/) 创建并
+以 [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/) 协议授权.
+我们鼓励你 fork 这个仓库并按照你的喜好进行调整.
 
 ![Creative Commons License](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
 
-## Table of contents
+## 目录
 
-* [2 Spaces for indention](#2-spaces-for-indention)
-* [Newlines](#newlines)
-* [No trailing whitespace](#no-trailing-whitespace)
-* [Use Semicolons](#use-semicolons)
-* [80 characters per line](#80-characters-per-line)
-* [Use single quotes](#use-single-quotes)
-* [Opening braces go on the same line](#opening-braces-go-on-the-same-line)
+* [2 Spaces for indention](#2-spaces-for-indention) 双空格缩进
+* [Newlines](#newlines) 换行符
+* [No trailing whitespace](#no-trailing-whitespace) 行尾不要留空格
+* [Use Semicolons](#use-semicolons) 使用分号
+* [80 characters per line](#80-characters-per-line) 每行不超过 80 个字符
+* [Use single quotes](#use-single-quotes) 使用单引号
+* [Opening braces go on the same line](#opening-braces-go-on-the-same-line) 将打开括号写在同一行
 * [Method chaining](#method-chaining)
-* [Declare one variable per var statement](#declare-one-variable-per-var-statement)
-* [Use lowerCamelCase for variables, properties and function names](#use-lowercamelcase-for-variables-properties-and-function-names)
+* [Declare one variable per var statement](#declare-one-variable-per-var-statement) 每个 var 只声明一个变量
+* [Use lowerCamelCase for variables, properties and function names](#use-lowercamelcase-for-variables-properties-and-function-names) 使用驼峰命名
 * [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
-* [Use UPPERCASE for Constants](#use-uppercase-for-constants)
-* [Object / Array creation](#object--array-creation)
-* [Use the === operator](#use-the--operator)
-* [Use multi-line ternary operator](#use-multi-line-ternary-operator)
-* [Use slashes for comments](#use-slashes-for-comments)
+* [Use UPPERCASE for Constants](#use-uppercase-for-constants) 用大写命名常量
+* [Object / Array creation](#object--array-creation) 如何创建对象或数组
+* [Use the === operator](#use-the--operator) 使用 === 运算符
+* [Use multi-line ternary operator](#use-multi-line-ternary-operator) 多行写三元运算符
+* [Use slashes for comments](#use-slashes-for-comments) 用斜线写注释
 * [Object.freeze, Object.preventExtensions, Object.seal, with, eval](#objectfreeze-objectpreventextensions-objectseal-with-eval)
 * [Getters and setters](#getters-and-setters)
 
@@ -41,16 +40,22 @@ according to your preferences.
 Use 2 spaces for indenting your code and swear an oath to never mix tabs and
 spaces - a special kind of hell is awaiting you otherwise.
 
+使用两个空格用来缩进代码, 不要将 Tab 和空格混合使用.
+
 ## Newlines
 
 Use UNIX-style newlines (`\n`), and a newline character as the last character
 of a file. Windows-style newlines (`\r\n`) are forbidden inside any repository.
+
+使用 UNIX 风格的换行符, 不要使用 Windows 风格的.
 
 ## No trailing whitespace
 
 Just like you brush your teeth after every meal, you clean up any trailing
 whitespace in your JS files before committing. Otherwise the rotten smell of
 careless neglect will eventually drive away contributors and/or co-workers.
+
+行尾不要留下没有用的空格.
 
 ## Use Semicolons
 
@@ -62,11 +67,15 @@ cheap syntactic pleasures.
 [the opposition]: http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
 [hnsemicolons]: http://news.ycombinator.com/item?id=1547647
 
+建议使用分号. 不过这点存在分歧.
+
 ## 80 characters per line
 
 Limit your lines to 80 characters. Yes, screens have gotten much bigger over the
 last few years, but your brain has not. Use the additional room for split screen,
 your editor supports that, right?
+
+保证每行不超过 80 个字符.
 
 ## Use single quotes
 
@@ -83,6 +92,8 @@ var foo = 'bar';
 ```js
 var foo = "bar";
 ```
+
+除非写 JSON, 否则不要使用双引号.
 
 ## Opening braces go on the same line
 
@@ -104,6 +115,10 @@ if (true)
   console.log('losing');
 }
 ```
+
+将打开扩号和这个声明写在同一行内.
+
+另外, 注意在适当的地方留空格.
 
 Also, notice the use of whitespace before and after the condition statement.
 
@@ -185,6 +200,8 @@ while (keys.length) {
 }
 ```
 
+每一个 var 只声明一个变量.
+
 [crockfordconvention]: http://javascript.crockford.com/code.html
 
 ## Use lowerCamelCase for variables, properties and function names
@@ -205,6 +222,10 @@ var adminUser = db.query('SELECT * FROM users ...');
 var admin_user = db.query('SELECT * FROM users ...');
 ```
 
+使用驼峰式命名变量, 属性和函数.
+
+但我喜欢下划线...
+
 ## Use UpperCamelCase for class names
 
 Class names should be capitalized using `UpperCamelCase`.
@@ -222,6 +243,8 @@ function BankAccount() {
 function bank_Account() {
 }
 ```
+
+使用首字母大写的驼峰命名类.
 
 ## Use UPPERCASE for Constants
 
@@ -254,6 +277,8 @@ File.fullPermissions = 0777;
 
 [const]: https://developer.mozilla.org/en/JavaScript/Reference/Statements/const
 
+使用全大写命名常量.
+
 ## Object / Array creation
 
 Use trailing commas and put *short* declarations on a single line. Only quote
@@ -279,6 +304,8 @@ var b = {"good": 'code'
         , is generally: 'pretty'
         };
 ```
+
+将较短的声明写在一行. 逗号不要放在行首.
 
 ## Use the === operator
 
@@ -306,6 +333,8 @@ if (a == '') {
 
 [comparisonoperators]: https://developer.mozilla.org/en/JavaScript/Reference/Operators/Comparison_Operators
 
+尽可能使用全等, 即 `===` 或 `!==`.
+
 ## Use multi-line ternary operator
 
 The ternary operator should not be used on a single line. Split it up into multiple lines instead.
@@ -323,6 +352,8 @@ var foo = (a === b)
 ```js
 var foo = (a === b) ? 1 : 2;
 ```
+
+用多行来写三元运算符.
 
 ## Do not extend built-in prototypes
 
@@ -351,6 +382,8 @@ if (a.empty()) {
 }
 ```
 
+不要扩展内置原型. (我怎么感觉会这样做的人太脑残)
+
 ## Use descriptive conditions
 
 Any non-trivial conditions should be assigned to a descriptively named variable or function:
@@ -373,11 +406,17 @@ if (password.length >= 4 && /^(?=.*\d).{4,}$/.test(password)) {
 }
 ```
 
+为条件添加相应的描述.
+
 ## Write small functions
 
 Keep your functions short. A good function fits on a slide that the people in
 the last row of a big room can comfortably read. So don't count on them having
 perfect vision and limit yourself to ~15 lines of code per function.
+
+将每一个小功能写成一个函数.
+
+一个函数不要有太多的功能. 建议每个函数不超过 15 行.
 
 ## Return early from functions
 
@@ -419,12 +458,16 @@ function isPercentage(val) {
 Or for this particular example it may also be fine to shorten things even
 further:
 
+针对上面那个特殊的例子也可以写成这样:
+
 ```js
 function isPercentage(val) {
   var isInRange = (val >= 0 && val <= 100);
   return isInRange;
 }
 ```
+
+尽可能早地返回一个值, 避免深度嵌套.
 
 ## Name your closures
 
@@ -446,6 +489,8 @@ req.on('end', function() {
   console.log('losing');
 });
 ```
+
+命名你的闭包(尽量避免匿名函数), 以方便调试.
 
 ## No nested closures
 
@@ -472,6 +517,8 @@ setTimeout(function() {
   });
 }, 1000);
 ```
+
+不要隐藏你的闭包.
 
 ## Use slashes for comments
 
@@ -517,6 +564,10 @@ if (isSessionValid) {
 }
 ```
 
+使用斜杠来进行单行或多行的注释.
+
+注释要写一些更高级的东西, 不要重复琐碎的事情.
+
 ## Object.freeze, Object.preventExtensions, Object.seal, with, eval
 
 Crazy shit that you will probably never need. Stay away from it.
@@ -530,3 +581,7 @@ Feel free to use getters that are free from [side effects][sideeffect], like
 providing a length property for a collection class.
 
 [sideeffect]: http://en.wikipedia.org/wiki/Side_effect_(computer_science)
+
+不要使用 setters.
+
+尽情使用 getters.
