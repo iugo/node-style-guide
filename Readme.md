@@ -81,13 +81,13 @@ your editor supports that, right?
 
 Use single quotes, unless you are writing JSON.
 
-*Right:*
+*正确的示范:*
 
 ```js
 var foo = 'bar';
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 var foo = "bar";
@@ -99,7 +99,7 @@ var foo = "bar";
 
 Your opening braces go on the same line as the statement.
 
-*Right:*
+*正确的示范:*
 
 ```js
 if (true) {
@@ -107,7 +107,7 @@ if (true) {
 }
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 if (true)
@@ -116,11 +116,11 @@ if (true)
 }
 ```
 
+Also, notice the use of whitespace before and after the condition statement.
+
 将打开扩号和这个声明写在同一行内.
 
 另外, 注意在适当的地方留空格.
-
-Also, notice the use of whitespace before and after the condition statement.
 
 ## Method chaining
 
@@ -128,7 +128,7 @@ One method per line should be used if you want to chain methods.
 
 You should also indent these methods so it's easier to tell they are part of the same chain.
 
-*Right:*
+*正确的示范:*
 
 ```js
 User
@@ -139,7 +139,7 @@ User
   });
 ````
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 User
@@ -173,7 +173,7 @@ lines. However, ignore [Crockford][crockfordconvention] when it comes to
 declaring variables deeper inside a function, just put the declarations wherever
 they make sense.
 
-*Right:*
+*正确的示范:*
 
 ```js
 var keys   = ['foo', 'bar'];
@@ -186,7 +186,7 @@ while (keys.length) {
 }
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 var keys = ['foo', 'bar'],
@@ -210,13 +210,13 @@ Variables, properties and function names should use `lowerCamelCase`.  They
 should also be descriptive. Single character variables and uncommon
 abbreviations should generally be avoided.
 
-*Right:*
+*正确的示范:*
 
 ```js
 var adminUser = db.query('SELECT * FROM users ...');
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 var admin_user = db.query('SELECT * FROM users ...');
@@ -230,14 +230,14 @@ var admin_user = db.query('SELECT * FROM users ...');
 
 Class names should be capitalized using `UpperCamelCase`.
 
-*Right:*
+*正确的示范:*
 
 ```js
 function BankAccount() {
 }
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 function bank_Account() {
@@ -255,7 +255,7 @@ Node.js / V8 actually supports mozilla's [const][const] extension, but
 unfortunately that cannot be applied to class members, nor is it part of any
 ECMA standard.
 
-*Right:*
+*正确的示范:*
 
 ```js
 var SECOND = 1 * 1000;
@@ -265,7 +265,7 @@ function File() {
 File.FULL_PERMISSIONS = 0777;
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 const SECOND = 1 * 1000;
@@ -284,7 +284,7 @@ File.fullPermissions = 0777;
 Use trailing commas and put *short* declarations on a single line. Only quote
 keys when your interpreter complains:
 
-*Right:*
+*正确的示范:*
 
 ```js
 var a = ['hello', 'world'];
@@ -294,7 +294,7 @@ var b = {
 };
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 var a = [
@@ -312,7 +312,7 @@ var b = {"good": 'code'
 Programming is not about remembering [stupid rules][comparisonoperators]. Use
 the triple equality operator as it will work just as expected.
 
-*Right:*
+*正确的示范:*
 
 ```js
 var a = 0;
@@ -322,7 +322,7 @@ if (a !== '') {
 
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 var a = 0;
@@ -339,7 +339,7 @@ if (a == '') {
 
 The ternary operator should not be used on a single line. Split it up into multiple lines instead.
 
-*Right:*
+*正确的示范:*
 
 ```js
 var foo = (a === b)
@@ -347,7 +347,7 @@ var foo = (a === b)
   : 2;
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 var foo = (a === b) ? 1 : 2;
@@ -360,7 +360,7 @@ var foo = (a === b) ? 1 : 2;
 Do not extend the prototype of native JavaScript objects. Your future self will
 be forever grateful.
 
-*Right:*
+*正确的示范:*
 
 ```js
 var a = [];
@@ -369,7 +369,7 @@ if (!a.length) {
 }
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 Array.prototype.empty = function() {
@@ -388,7 +388,7 @@ if (a.empty()) {
 
 Any non-trivial conditions should be assigned to a descriptively named variable or function:
 
-*Right:*
+*正确的示范:*
 
 ```js
 var isValidPassword = password.length >= 4 && /^(?=.*\d).{4,}$/.test(password);
@@ -398,7 +398,7 @@ if (isValidPassword) {
 }
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 if (password.length >= 4 && /^(?=.*\d).{4,}$/.test(password)) {
@@ -423,7 +423,7 @@ perfect vision and limit yourself to ~15 lines of code per function.
 To avoid deep nesting of if-statements, always return a function's value as early
 as possible.
 
-*Right:*
+*正确的示范:*
 
 ```js
 function isPercentage(val) {
@@ -439,7 +439,7 @@ function isPercentage(val) {
 }
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 function isPercentage(val) {
@@ -474,7 +474,7 @@ function isPercentage(val) {
 Feel free to give your closures a name. It shows that you care about them, and
 will produce better stack traces, heap and cpu profiles.
 
-*Right:*
+*正确的示范:*
 
 ```js
 req.on('end', function onEnd() {
@@ -482,7 +482,7 @@ req.on('end', function onEnd() {
 });
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 req.on('end', function() {
@@ -496,7 +496,7 @@ req.on('end', function() {
 
 Use closures, but don't nest them. Otherwise your code will become a mess.
 
-*Right:*
+*正确的示范:*
 
 ```js
 setTimeout(function() {
@@ -508,7 +508,7 @@ function afterConnect() {
 }
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 setTimeout(function() {
@@ -526,7 +526,7 @@ Use slashes for both single line and multi line comments. Try to write
 comments that explain higher level mechanisms or clarify difficult
 segments of your code. Don't use comments to restate trivial things.
 
-*Right:*
+*正确的示范:*
 
 ```js
 // 'ID_SOMETHING=VALUE' -> ['ID_SOMETHING=VALUE', 'SOMETHING', 'VALUE']
@@ -545,7 +545,7 @@ if (isSessionValid) {
 }
 ```
 
-*Wrong:*
+*错误的例子:*
 
 ```js
 // Execute a regex
